@@ -10,7 +10,7 @@ import org.w3c.dom.ls.LSOutput;
 public class VendingMachine {
     List<Product> inventory = new ArrayList<>();
 
-    public String makeInventory() {
+    public void makeInventory() {
         File vendor = new File("vendingmachine.csv");
         try (Scanner readInventory = new Scanner(vendor)) {
             while (readInventory.hasNextLine()) {
@@ -21,7 +21,6 @@ public class VendingMachine {
         } catch (FileNotFoundException e) {
             System.out.println("error");
         }
-        return null;
     }
 
 
