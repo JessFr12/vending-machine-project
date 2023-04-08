@@ -37,19 +37,19 @@ public class VendingMachine {
 
     public void makeInventoryItem(String[] atts){
         if(atts[3].equals("Candy")){
-            Product c = new Candy(atts[2], atts[1], atts[0]);
+            Product c = new Candy(Double.parseDouble(atts[2]), atts[1], atts[0]);
             inventory.add(c);
         }
         else if (atts[3].equals("Drink")){
-            Product c = new Drink(atts[2], atts[1], atts[0]);
+            Product c = new Drink(Double.parseDouble(atts[2]), atts[1], atts[0]);
             inventory.add(c);
         }
         else if (atts[3].equals("Chip")){
-            Product c = new Chips(atts[2], atts[1], atts[0]);
+            Product c = new Chips(Double.parseDouble(atts[2]), atts[1], atts[0]);
             inventory.add(c);
         }
         else if (atts[3].equals("Gum")){
-            Product c = new Gum(atts[2], atts[1], atts[0]);
+            Product c = new Gum(Double.parseDouble(atts[2]), atts[1], atts[0]);
             inventory.add(c);
         }
     }
