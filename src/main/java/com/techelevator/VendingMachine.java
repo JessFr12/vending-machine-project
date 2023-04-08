@@ -8,15 +8,14 @@ import com.techelevator.view.*;
 import org.w3c.dom.ls.LSOutput;
 
 public class VendingMachine {
-    private List<Product> inventory = new ArrayList<>();
+    List<Product> inventory = new ArrayList<>();
 
-
-    public String readInventory() {
+    public String makeInventory() {
         File vendor = new File("vendingmachine.csv");
         try (Scanner readInventory = new Scanner(vendor)) {
             while (readInventory.hasNextLine()) {
                 String line = readInventory.nextLine();
-                String[] attributes = line.split("|");
+                String[] attributes = line.split("\\|");
                 this.makeInventoryItem(attributes);
             }
         } catch (FileNotFoundException e) {
