@@ -8,10 +8,11 @@ import com.techelevator.view.*;
 import org.w3c.dom.ls.LSOutput;
 
 public class VendingMachine {
+    private List<Product> inventory = new ArrayList<>();
+
 
     public String readInventory() {
         File vendor = new File("vendingmachine.csv");
-        List<Product> inventory = new ArrayList<>();
         try (Scanner readInventory = new Scanner(vendor)) {
             while (readInventory.hasNextLine()) {
                 String line = readInventory.nextLine();
