@@ -5,11 +5,20 @@ public abstract class Product {
     private int stock=5;
     private String name;
     private String slotID;
+    private String message;
 
     public Product(double price, String name, String slotID) {
         this.price = price;
         this.name = name;
         this.slotID = slotID;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public void setPrice(double price) {
