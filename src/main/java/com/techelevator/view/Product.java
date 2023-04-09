@@ -18,6 +18,10 @@ public abstract class Product {
         return inStock;
     }
 
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
+    }
+
     public String getMessage() {
         return message;
     }

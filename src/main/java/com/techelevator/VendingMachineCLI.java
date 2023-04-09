@@ -26,7 +26,7 @@ public class VendingMachineCLI {
 					String outputLine = "";
 					outputLine+=p.getSlotID()+" ";
 					outputLine+=p.getName()+" ";
-					outputLine+=p.getPrice()+" ";
+					outputLine+=String.format("%.2f",p.getPrice())+" ";
 					outputLine+=p.getStock();
 					System.out.println(outputLine);
 				}
