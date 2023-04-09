@@ -1,6 +1,6 @@
 package com.techelevator;
 
-import com.techelevator.view.Menu;
+import com.techelevator.view.*;
 
 public class VendingMachineCLI {
 
@@ -20,6 +20,16 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
+				VendingMachine vendor = new VendingMachine();
+				vendor.makeInventory();
+				for (Product p : vendor.inventory){
+					String outputLine = "";
+					outputLine+=p.getSlotID()+" ";
+					outputLine+=p.getName()+" ";
+					outputLine+=p.getPrice()+" ";
+					outputLine+=p.getStock();
+					System.out.println(outputLine);
+				}
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 			}

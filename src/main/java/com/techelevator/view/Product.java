@@ -6,6 +6,7 @@ public abstract class Product {
     private String name;
     private String slotID;
     private String message;
+    private boolean inStock=true;
 
     public Product(double price, String name, String slotID) {
         this.price = price;

@@ -8,7 +8,7 @@ import com.techelevator.view.*;
 import org.w3c.dom.ls.LSOutput;
 
 public class VendingMachine {
-    List<Product> inventory = new ArrayList<>();
+    public List<Product> inventory = new ArrayList<>();
 
     public void makeInventory() {
         File vendor = new File("vendingmachine.csv");
