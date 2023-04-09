@@ -14,6 +14,10 @@ public abstract class Product {
         this.slotID = slotID;
     }
 
+    public boolean isInStock() {
+        return inStock;
+    }
+
     public String getMessage() {
         return message;
     }
