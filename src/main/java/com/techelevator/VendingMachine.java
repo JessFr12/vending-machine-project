@@ -7,7 +7,7 @@ import java.util.List;
 import com.techelevator.view.*;
 import org.w3c.dom.ls.LSOutput;
 
-public class VendingMachine {
+public class VendingMachine extends Purchaser{
     public List<Product> inventory = new ArrayList<>();
 
     public void makeInventory() {
