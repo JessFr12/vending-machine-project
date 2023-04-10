@@ -1,21 +1,25 @@
 package com.techelevator;
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class VendingMachineLogger {
     private  PrintWriter writer;
     public VendingMachineLogger() throws IOException {
-//        the second true auto filled not completely sure why
+
         writer = new PrintWriter(new FileWriter("Log.txt", true), true);
     }
-
     public void logTransaction(String action, double amount, double balance) {
         LocalDateTime timestamp = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm:ss");
-        String formattedTimestamp = timestamp.format(formatter);
+        DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm:ss");
+        String formattedTimestamp = timestamp.format(formatterDate);
         writer.println(formattedTimestamp + " " + action + ": $" + amount + " $" + balance);
+    }
+    public String formatDollar(double amount) {
+        DecimalFormat formatterDollar = new DecimalFormat("$0.00");
+        return formatterDollar.format(amount);
     }
     public void logFeedMoney(double amount, double balance) {
         logTransaction("Feed Money", amount, balance);
