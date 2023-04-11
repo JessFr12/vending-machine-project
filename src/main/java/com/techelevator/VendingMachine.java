@@ -14,10 +14,8 @@ public class VendingMachine extends Purchaser{
             if(p.getSlotID().equals(slotID)){
                 return p;
             }
-            else{
-                return null;
-            }
         }
+        return null;
     }
 
 
