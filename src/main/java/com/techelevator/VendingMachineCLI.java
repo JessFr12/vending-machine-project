@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import com.techelevator.view.*;
+import java.util.Scanner;
 
 public class VendingMachineCLI {
 
@@ -13,6 +14,7 @@ public class VendingMachineCLI {
 	private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_FEED_MONEY, PURCHASE_MENU_SELECT_PRODUCT, PURCHASE_MENU_FINISH_TRANSACTION};
 
 	private Menu menu;
+	private Scanner input = new Scanner(System.in);
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
@@ -39,9 +41,18 @@ public class VendingMachineCLI {
 				System.out.println(vendor.getUserBalance());
 				menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 				if(choice.equals(PURCHASE_MENU_FEED_MONEY)){
+					System.out.println("Enter a whole dollar amount: ");
+					int amount = Integer.parseInt(input.nextLine());
+					vendor.feedMoney(amount);
+
 
 				}
 				else if (choice.equals(PURCHASE_MENU_SELECT_PRODUCT)){
+					System.out.println("Enter a product ID:");
+					String id = input.nextLine();
+
+					Product ch = vendor.getInventoryItem(id);
+					vendor.purchaseProduct(ch);
 
 				}
 				else if (choice.equals(PURCHASE_MENU_FINISH_TRANSACTION)){

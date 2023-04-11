@@ -9,6 +9,17 @@ import org.w3c.dom.ls.LSOutput;
 
 public class VendingMachine extends Purchaser{
     public List<Product> inventory = new ArrayList<>();
+    public Product getInventoryItem(String slotID){
+        for (Product p : inventory){
+            if(p.getSlotID().equals(slotID)){
+                return p;
+            }
+            else{
+                return null;
+            }
+        }
+    }
+
 
     public void makeInventory() {
         File vendor = new File("vendingmachine.csv");

@@ -8,12 +8,11 @@ public class Purchaser {
     private final double DIME = 0.1;
     private Product choice;
     private double userBalance=0;
-    private double machineBalance;
-    private double changeDue;
 
-    public Purchaser(Product choice) {
+
+   /* public Purchaser(Product choice) {
         this.choice = choice;
-    }
+    }*/
 
     public Product getChoice() {
         return choice;
@@ -23,12 +22,8 @@ public class Purchaser {
         return userBalance;
     }
 
-    public double getMachineBalance() {
-        return machineBalance;
-    }
-
-    public double getChangeDue() {
-        return changeDue;
+    public void setChoice(Product choice) {
+        this.choice = choice;
     }
 
     //this method needs to take a slotID instead of a product
