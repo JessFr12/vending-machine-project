@@ -39,7 +39,7 @@ public class VendingMachineCLI {
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 				System.out.println(vendor.getUserBalance());
-				menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+				choice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 				if(choice.equals(PURCHASE_MENU_FEED_MONEY)){
 					System.out.println("Enter a whole dollar amount: ");
 					int amount = Integer.parseInt(input.nextLine());
