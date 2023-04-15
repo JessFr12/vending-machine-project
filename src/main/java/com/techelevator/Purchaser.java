@@ -44,7 +44,7 @@ public class Purchaser {
                 userBalance-=price;
                 c.setStock(c.getStock()-1);
                 //  System.out.println(c.getName()+" "+c.getPrice()+" "+getUserBalance());
-                System.out.println(c.getMessage());
+                //System.out.println(c.getMessage());
                 if(c.getStock()==0){
                     c.setInStock(false);
                 }
@@ -61,7 +61,7 @@ public class Purchaser {
         }
 
     }
-    public void dispenseChange(){
+    public String dispenseChange(){
         //return something
         //needs fixing
         try{
@@ -73,12 +73,15 @@ public class Purchaser {
             remainder = Double.parseDouble(format.format(remainder%DIME));
             double numNickels = Math.floor(remainder/NICKEL);
             double totalDispensed = numQuarters*QUARTER+numDimes*DIME+numNickels*NICKEL;
-            System.out.println("Change Dispensed: "+numQuarters+" quarters, "+numDimes+" dimes, "+numNickels+" nickels.");
             setUserBalance(0);
             logger.logGiveChange(totalDispensed, 0);
+            String output = "Change Dispensed: "+numQuarters+" quarters, "+numDimes+" dimes, "+numNickels+" nickels.";
+            return output;
+
         }catch(IOException e){
             System.out.println("Error"+e.getMessage());
         }
+        return null;
 
 
     }
