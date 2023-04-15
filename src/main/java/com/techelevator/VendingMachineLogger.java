@@ -24,8 +24,8 @@ public class VendingMachineLogger {
     public void logFeedMoney(double amount, double balance) {
         logTransaction("Feed Money", amount, balance);
     }
-    public void logPurchase(String id, double amount, double balance) {
-        logTransaction(id, amount, balance);
+    public void logPurchase(String name, String id, double amount, double balance) {
+        logTransaction(name+" "+id, amount, balance);
     }
     public void logGiveChange(double amount, double balance) {
         logTransaction("Give Change", amount, balance);
