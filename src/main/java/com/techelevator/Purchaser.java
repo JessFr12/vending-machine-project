@@ -1,5 +1,6 @@
 package com.techelevator;
 import com.techelevator.view.*;
+import java.text.DecimalFormat;
 
 public class Purchaser {
     private final double NICKEL = 0.05;
@@ -55,11 +56,13 @@ public class Purchaser {
     public void dispenseChange(){
         //return something
         //needs fixing
+        DecimalFormat format = new DecimalFormat("0.00");
         double numQuarters = Math.floor(userBalance/QUARTER);
-        double remainder = userBalance%QUARTER;
+        double remainder = Double.parseDouble(format.format(userBalance%QUARTER));
         double numDimes = Math.floor(remainder/DIME);
-        remainder = remainder%DIME;
+        remainder = Double.parseDouble(format.format(remainder%DIME));
         double numNickels = Math.floor(remainder/NICKEL);
+        System.out.println("Change Dispensed: "+numQuarters+" quarters, "+numDimes+" dimes, "+numNickels+" nickels.");
         setUserBalance(0);
 
 

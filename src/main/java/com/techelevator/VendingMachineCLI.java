@@ -59,11 +59,13 @@ public class VendingMachineCLI {
 
 			Product ch = vendor.getInventoryItem(id);
 			vendor.purchaseProduct(ch);
+			this.purchaseSubMenu();
 			//menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 
 		}
 		else if (choice.equals(PURCHASE_MENU_FINISH_TRANSACTION)){
 			vendor.dispenseChange();
+
 
 		}
 	}
