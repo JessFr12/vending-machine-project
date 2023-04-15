@@ -11,7 +11,7 @@ import java.util.List;
 
 public class VendingMachineTest{
     @Test
-    public void testGetInventoryItem() {
+    public void testMakeInventory() {
         VendingMachine v = new VendingMachine();
         v.makeInventory();
         Set<String> ids = new HashSet<>();
@@ -27,7 +27,7 @@ public class VendingMachineTest{
 
     }
     @Test
-    public void testMakeInventory() {
+    public void testGetInventoryItem() {
         VendingMachine v = new VendingMachine();
         v.makeInventory();
         Product item = v.inventory.get(0);

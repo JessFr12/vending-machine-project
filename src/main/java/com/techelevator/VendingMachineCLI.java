@@ -15,17 +15,16 @@ public class VendingMachineCLI {
 
 	private Menu menu;
 	private Scanner input = new Scanner(System.in);
-
+	VendingMachine vendor;
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
+		vendor = new VendingMachine();
+		vendor.makeInventory();
 	}
 
 	public void run() {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
-			VendingMachine vendor = new VendingMachine();
-			vendor.makeInventory();
-
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
 				for (Product p : vendor.inventory){
@@ -38,30 +37,34 @@ public class VendingMachineCLI {
 				}
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
-				System.out.println(vendor.getUserBalance());
-				choice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
-				if(choice.equals(PURCHASE_MENU_FEED_MONEY)){
-					System.out.println("Enter a whole dollar amount: ");
-					int amount = Integer.parseInt(input.nextLine());
-					vendor.feedMoney(amount);
+				this.purchaseSubMenu();
 
-
-				}
-				else if (choice.equals(PURCHASE_MENU_SELECT_PRODUCT)){
-					System.out.println("Enter a product ID:");
-					String id = input.nextLine();
-
-					Product ch = vendor.getInventoryItem(id);
-					vendor.purchaseProduct(ch);
-					//menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
-
-				}
-				else if (choice.equals(PURCHASE_MENU_FINISH_TRANSACTION)){
-					vendor.dispenseChange();
-
-				}
 
 			}
+		}
+	}
+	private void purchaseSubMenu(){
+		System.out.println(vendor.getUserBalance());
+		String choice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+		if(choice.equals(PURCHASE_MENU_FEED_MONEY)){
+			System.out.println("Enter a whole dollar amount: ");
+			int amount = Integer.parseInt(input.nextLine());
+			vendor.feedMoney(amount);
+			this.purchaseSubMenu();
+
+		}
+		else if (choice.equals(PURCHASE_MENU_SELECT_PRODUCT)){
+			System.out.println("Enter a product ID:");
+			String id = input.nextLine();
+
+			Product ch = vendor.getInventoryItem(id);
+			vendor.purchaseProduct(ch);
+			//menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+
+		}
+		else if (choice.equals(PURCHASE_MENU_FINISH_TRANSACTION)){
+			vendor.dispenseChange();
+
 		}
 	}
 

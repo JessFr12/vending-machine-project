@@ -13,7 +13,7 @@ public class VendingMachineLogger {
     }
     public void logTransaction(String action, double amount, double balance) {
         LocalDateTime timestamp = LocalDateTime.now();
-        DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm:ss");
+        DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm:ss a");
         String formattedTimestamp = timestamp.format(formatterDate);
         writer.println(formattedTimestamp + " " + action + ": $" + amount + " $" + balance);
     }
